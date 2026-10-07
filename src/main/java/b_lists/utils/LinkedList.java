@@ -64,4 +64,18 @@ public class LinkedList {
     }
 
 
+    public void add(String element, int index){
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
+        }
+
+        Node newNode = new Node(element);
+        if(index == 0){
+            if(first != null){
+                newNode.next = first;
+            }
+
+            first = newNode;
+        }
+    }
 }
