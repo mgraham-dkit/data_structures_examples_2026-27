@@ -32,4 +32,8 @@ public class LinkedList {
         size++;
     }
 
+    // public int size() - returns the size of the list (how many elements are currently stored)
+    // public boolean isEmpty() - returns if the list is empty
+    // public String get(int index) - returns the data at the specified position
+    // If the supplied index is illegal (< 0 or >= size) then an IndexOutOfBoundsException should be thrown
 }
