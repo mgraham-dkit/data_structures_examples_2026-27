@@ -92,4 +92,7 @@ public class LinkedList {
 
         size++;
     }
+
+    // todo: remove(int index) removes the value at the specified index.
+    //  This should RETURN the value originally at that index
 }
