@@ -76,6 +76,20 @@ public class LinkedList {
             }
 
             first = newNode;
+        }else {
+
+            Node prev = null;
+            Node current = first;
+
+            for (int i = 0; i < index; i++) {
+                prev = current;
+                current = current.next;
+            }
+
+            newNode.next = current;
+            prev.next = newNode;
         }
+
+        size++;
     }
 }
