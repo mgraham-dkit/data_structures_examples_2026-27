@@ -52,6 +52,20 @@ public class HashMap<K, V> {
         return entry.value;
     }
 
+    @SuppressWarnings("unchecked")
+    public V remove(K key){
+        Objects.requireNonNull(key, "Key cannot be null");
+
+        int slot = hashFunction(key);
+        if(map[slot] == null){
+            return null;
+        }
+
+        Entry<K, V> entry = (Entry<K, V>) map[slot];
+        map[slot] = null;
+        return entry.value;
+    }
+
     public int count(){
         return count;
     }
