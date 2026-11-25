@@ -2,8 +2,21 @@ package c_generics.utils;
 
 public class GenericDynamicArray<T> {
     private static final int EXPANSION_MULTIPLIER = 2;
+    private static final int DEFAULT_SIZE = 10;
     private int size = 0;
-    private Object[] data = new Object[10];
+    private Object[] data;
+
+    public GenericDynamicArray(){
+        this.data = new Object[DEFAULT_SIZE];
+    }
+
+    public GenericDynamicArray(int initialCapacity){
+        if(initialCapacity <=0 ){
+            throw new IllegalArgumentException("List initial capacity must be >= 1");
+        }
+
+        this.data = new Object[initialCapacity];
+    }
 
     private void ensureCapacity(){
         if(size == data.length){
