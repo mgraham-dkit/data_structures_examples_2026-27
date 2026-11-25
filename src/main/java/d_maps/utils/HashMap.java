@@ -1,5 +1,8 @@
 package d_maps.utils;
 
+import c_generics.utils.GenericDynamicArray;
+import c_generics.utils.GenericLinkedList;
+
 import java.util.Objects;
 
 public class HashMap<K, V> {
@@ -68,6 +71,25 @@ public class HashMap<K, V> {
 
     public int count(){
         return count;
+    }
+
+    @SuppressWarnings("unchecked")
+    public GenericDynamicArray<K> getKeys(){
+        GenericDynamicArray<K> keys = new GenericDynamicArray<>(count);
+        int keyCount = 0;
+
+        int slotIndex = 0;
+        while(keyCount != count && slotIndex < map.length){
+            if(map[slotIndex] != null) {
+                Entry<K, V> currentEntry = (Entry<K, V>) map[slotIndex];
+                K currentKey = currentEntry.key;
+                keys.add(currentKey);
+                keyCount++;
+            }
+            slotIndex++;
+        }
+
+        return keys;
     }
 
     private int hashFunction(K key){
